@@ -1,0 +1,28 @@
+<mat-card class="todo-list">
+    <mat-toolbar color="primary" class="toolbar">
+        <button mat-icon-button routerLink="/">
+            <mat-icon>arrow_back</mat-icon>
+          </button>
+        <span class="toolbar-title centered">To Do List</span>
+    </mat-toolbar>
+    <mat-card-content class="content" *ngIf="todos.length > 0; else noTodos">
+      <mat-accordion>
+        <mat-expansion-panel *ngFor="let todo of todos">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="todoName">
+              {{ todo.name }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p class="todoDescription">{{ todo.description }}</p>
+          <a routerLink="/todos/{{todo.id}}">View Details</a>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-card-content>
+    <ng-template #noTodos>
+      <p class="centered">Sorry! No To-Do to display. Please add a To-Do to add in the list.</p>
+    </ng-template>
+    <mat-card-actions class="actions">
+      <button mat-raised-button color="primary" routerLink="/add-todo">Add Todo</button>
+    </mat-card-actions>
+  </mat-card>
+  

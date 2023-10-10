@@ -1,0 +1,164 @@
+/* Import Angular Material theme */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+/* Global Styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* Centered text alignment */
+.centered {
+  text-align: center;
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px; /* Margin at the bottom of the header */
+}
+
+/* Back Button Styles */
+.back-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 10px; /* Margin on the right side of the button */
+}
+
+.back-button:hover {
+  background-color: #0056b3; /* Button color on hover */
+}
+
+/* List Styles */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  /* Styles for list items */
+  border-radius: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+/* Heading Styles */
+.h2 {
+  font-size: 24px;
+  margin: 20px 0; /* Margin at the top and bottom of headings */
+}
+
+.h3 {
+  font-weight: 900; /* Bold font weight */
+  font-size: 22px;
+  margin: 0;
+}
+
+/* Paragraph Styles */
+p {
+  font-weight: 100; /* Light font weight */
+  font-size: 18px;
+  margin: 10px 0; /* Margin at the top and bottom of paragraphs */
+}
+
+/* Link Styles */
+a {
+  display: block;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline; /* Underline link on hover */
+}
+
+/* Button Group Styles */
+.button-group {
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+}
+
+.button-group button {
+  margin-right: 10px; /* Margin between buttons */
+  margin-top: 20px; /* Margin at the top of buttons */
+}
+
+/* Todo Card Styles */
+.todo-card {
+  margin-bottom: 20px;
+  margin: 20px;
+  padding: 20px;
+}
+
+/* Form Field Styles */
+.mat-form-field {
+  width: 100%;
+}
+
+/* Toolbar Styles */
+.toolbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toolbar-title {
+  font-size: 28px;
+  flex-grow: 1;
+  text-align: center;
+  padding: 40px; /* Padding within the toolbar title */
+}
+
+/* Todo Details Styles */
+.todo-details, .task-details {
+  font-size: 21px;
+}
+
+/* Content Styles */
+.content {
+  font-size: 1.5em;
+}
+
+/* Actions Styles */
+.actions {
+  font-size: 1.5em;
+  justify-content: center;
+}
+
+/* Welcome Screen Styles */
+.welcomeScreenButton {
+  top: 80px; /* Position the button from the top */
+}
+
+/* Update Todo Styles */
+.update-todo {
+  padding: 0px 20px; /* Padding within the update-todo container */
+}
+
+/* Label Styles for Updates */
+.updateLabel {
+  font-size: 15px;
+  font-weight: 500; /* Medium font weight */
+}
+
+/* Textarea Styles for Updates */
+.updateTextArea {
+  width: 70%;
+  padding-left: 15px; /* Left padding for textarea */
+}
+
+/* Todo Name Styles */
+.todoName {
+  font-size: 20px; /* Font size for todo names */
+}
