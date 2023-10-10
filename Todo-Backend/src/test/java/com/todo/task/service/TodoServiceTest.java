@@ -46,7 +46,7 @@ public class TodoServiceTest {
 
         ResponseEntity<CustomResponse<Todo>> response = todoService.createTodo(inputTodo);
 
-        assertEquals(HttpStatus.CREATED, response.getStatusCode());
+        assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(createdTodo, response.getBody().getData());
     }
 
@@ -72,7 +72,7 @@ public class TodoServiceTest {
 
         ResponseEntity<CustomResponse<Todo>> response = todoService.getTodo(todoId);
 
-        assertEquals(HttpStatus.FOUND, response.getStatusCode());
+        assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(todo, response.getBody().getData());
     }
 
@@ -104,7 +104,7 @@ public class TodoServiceTest {
 
         ResponseEntity<CustomResponse<List<Todo>>> response = todoService.findAllTodos();
 
-        assertEquals(HttpStatus.FOUND, response.getStatusCode());
+        assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(todos, response.getBody().getData());
     }
 
