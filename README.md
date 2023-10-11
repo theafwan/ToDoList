@@ -31,19 +31,19 @@ To run the frontend application, follow these steps:
 ### Screenshots
 
 #### Welcome Screen
-![Alt text](image.png)
+![Alt text](./Screenshots/image.png)
 
 #### List of Todos
-![Alt text](image-1.png)
+![Alt text](./Screenshots/image-1.png)
 
 #### Todo Details
-![Alt text](image-2.png)
+![Alt text](./Screenshots/image-2.png)
 
 #### Update Todo
-![Alt text](image-3.png)
+![Alt text](./Screenshots/image-3.png)
 
 #### Add Todo
-![Alt text](image-4.png)
+![Alt text](./Screenshots/image-4.png)
 
 ## Todo-Backend
 
@@ -63,19 +63,19 @@ To run the backend application, follow these steps:
 ### Screenshots
 
 #### Get All Todos
-![Alt text](image-7.png)
+![Alt text](./Screenshots/image-7.png)
 
 #### Get Todo By Id
-![Alt text](image-8.png)
+![Alt text](./Screenshots/image-8.png)
 
 #### Create Todo
-![Alt text](image-9.png)
+![Alt text](./Screenshots/image-9.png)
 
 #### Update Todo
-![Alt text](image-10.png)
+![Alt text](./Screenshots/image-10.png)
 
 #### Delete Todo
-![Alt text](image-11.png)
+![Alt text](./Screenshots/image-11.png)
 
 
 ## Unit Test Results
@@ -83,13 +83,13 @@ To run the backend application, follow these steps:
 ### The following screenshots show the results of running unit tests for the frontend and backend applications.
 
 #### Frontend Unit Test Results
-![Alt text](image-5.png)
+![Alt text](./Screenshots/image-5.png)
 
 #### Backend Unit Test Results
-![Alt text](image-13.png)
+![Alt text](./Screenshots/image-13.png)
 
 JaCoCo Test Coverage Report
-![Alt text](image-12.png)
+![Alt text](./Screenshots/image-12.png)
 
 ## Contributores
 
