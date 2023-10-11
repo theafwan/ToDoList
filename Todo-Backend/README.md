@@ -97,6 +97,10 @@ Configuration: JaCoCo Maven Plugin is configured to produce test coverage report
 
 Postman Collection has been added to the project to test the APIs.
 
+## Project Structure
+
+![Alt text](../Screenshots/Backend-Project-Structure.png)
+
 ## Contributors
 
 - Mohammed Afwan
