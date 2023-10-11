@@ -1,10 +1,8 @@
 package com.todo.task.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.todo.task.model.Todo;
 import com.todo.task.response.CustomResponse;
 import com.todo.task.service.TodoService;
-import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -19,7 +17,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.*;
-@Slf4j
+
 public class TodoControllerTest {
 
     @Mock
@@ -28,12 +26,10 @@ public class TodoControllerTest {
     @InjectMocks
     private TodoController todoController;
 
-    private ObjectMapper objectMapper;
 
     @BeforeEach
     public void setup() {
         MockitoAnnotations.openMocks(this);
-        objectMapper = new ObjectMapper();
     }
 
     @Test

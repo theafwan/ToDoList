@@ -9,27 +9,31 @@ This is a backend application for a To-Do List Application. It provides RESTful 
 The application uses the following external dependencies (JAR files):
 
 1. **Spring Boot Starter Data JPA**
-    - Description: This dependency provides the necessary Spring Boot starters for using Spring Data JPA for database access.
-    - Artifact ID: `spring-boot-starter-data-jpa`
+
+   - Description: This dependency provides the necessary Spring Boot starters for using Spring Data JPA for database access.
+   - Artifact ID: `spring-boot-starter-data-jpa`
 
 2. **Spring Boot Starter Web**
-    - Description: This dependency provides the necessary Spring Boot starters for building web applications.
-    - Artifact ID: `spring-boot-starter-web`
+
+   - Description: This dependency provides the necessary Spring Boot starters for building web applications.
+   - Artifact ID: `spring-boot-starter-web`
 
 3. **MySQL Connector/J**
-    - Description: MySQL Connector/J is the official JDBC driver for connecting to MySQL databases.
-    - Artifact ID: `mysql-connector-j`
-    - Scope: Runtime (used during runtime)
+
+   - Description: MySQL Connector/J is the official JDBC driver for connecting to MySQL databases.
+   - Artifact ID: `mysql-connector-j`
+   - Scope: Runtime (used during runtime)
 
 4. **Project Lombok**
-    - Description: Project Lombok is used for reducing boilerplate code in Java classes by generating getters, setters, constructors, and other common methods.
-    - Artifact ID: `lombok`
-    - Optional: true (used during development but not required during runtime)
+
+   - Description: Project Lombok is used for reducing boilerplate code in Java classes by generating getters, setters, constructors, and other common methods.
+   - Artifact ID: `lombok`
+   - Optional: true (used during development but not required during runtime)
 
 5. **Spring Boot Starter Test**
-    - Description: This dependency provides Spring Boot starters for writing unit and integration tests.
-    - Artifact ID: `spring-boot-starter-test`
-    - Scope: Test (used for testing purposes)
+   - Description: This dependency provides Spring Boot starters for writing unit and integration tests.
+   - Artifact ID: `spring-boot-starter-test`
+   - Scope: Test (used for testing purposes)
 
 ## Building and Running the Application
 
@@ -51,11 +55,12 @@ Follow these steps:
    spring.datasource.password=<YOUR_MYSQL_PASSWORD>
    spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
    spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect
-    ```
+   ```
+
 3. Run the application using Maven:
-    ```shell
-    mvn spring-boot:run
-    ```
+   ```shell
+   mvn spring-boot:run
+   ```
 4. The application will start and listen on port 8080 by default.
 
 ## Database Schema
@@ -77,6 +82,7 @@ The application uses two tables, todos and tasks, with a foreign key relationshi
         CONSTRAINT FK_TASK_TODO FOREIGN KEY (TODO_ID) REFERENCES todos(ID)
     ) ENGINE=InnoDB;
 ```
+
 ## Testing
 
 Unit test cases for the controller and service classes are provided to test both positive and error scenarios. You can run the tests using the following command:
@@ -89,8 +95,11 @@ JaCoCo (Java Code Coverage)
 Description: JaCoCo is used for measuring test code coverage. It generates detailed reports that show which parts of the code are exercised by unit tests.
 Configuration: JaCoCo Maven Plugin is configured to produce test coverage reports during the build process.
 
+Postman Collection has been added to the project to test the APIs.
+
 ## Contributors
-* Mohammed Afwan
+
+- Mohammed Afwan
 
 ```javascript
     Replace `<YOUR_MYSQL_HOST>`, `<YOUR_MYSQL_PORT>`, `<YOUR_DATABASE_NAME>`, `<YOUR_MYSQL_USERNAME>`, and `<YOUR_MYSQL_PASSWORD>` with the actual database connection details in your application.
