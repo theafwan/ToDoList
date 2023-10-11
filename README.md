@@ -86,7 +86,10 @@ To run the backend application, follow these steps:
 ![Alt text](image-5.png)
 
 #### Backend Unit Test Results
-![Alt text](image-6.png)
+![Alt text](image-13.png)
+
+JaCoCo Test Coverage Report
+![Alt text](image-12.png)
 
 ## Contributores
 

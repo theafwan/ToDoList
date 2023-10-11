@@ -1,6 +1,7 @@
 package com.todo.task.service;
 
 import com.todo.task.exception.TodoNotFoundException;
+import com.todo.task.model.Task;
 import com.todo.task.model.Todo;
 import com.todo.task.repository.TodoRepository;
 import com.todo.task.response.CustomResponse;
@@ -9,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -61,6 +63,26 @@ public class TodoServiceTest {
     }
 
     @Test
+    public void testCreateTodoWithException() {
+        // Mock data
+        Todo todo = new Todo();
+        todo.setName("Test Todo");
+        todo.setDescription("Description");
+
+        when(todoRepository.save(todo)).thenThrow(new RuntimeException("Simulated database error"));
+
+        // Call the createTodo method
+        ResponseEntity<CustomResponse<Todo>> responseEntity = todoService.createTodo(todo);
+
+        // Assertions
+        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, responseEntity.getStatusCode());
+        assertNotNull(responseEntity.getBody());
+        assertFalse(responseEntity.getBody().isSuccess());
+        assertEquals("Error while saving data.", responseEntity.getBody().getMessage());
+        assertNull(responseEntity.getBody().getData());
+    }
+
+    @Test
     public void testGetTodo() {
         long todoId = 1L;
 
@@ -86,6 +108,24 @@ public class TodoServiceTest {
 
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
         assertNull(response.getBody().getData());
+    }
+
+    @Test
+    public void testGetTodoWithException() {
+        // Mock data
+        Long todoId = 1L;
+
+        when(todoRepository.findById(todoId)).thenThrow(new RuntimeException("Simulated database error"));
+
+        // Call the getTodo method
+        ResponseEntity<CustomResponse<Todo>> responseEntity = todoService.getTodo(todoId);
+
+        // Assertions
+        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, responseEntity.getStatusCode());
+        assertNotNull(responseEntity.getBody());
+        assertFalse(responseEntity.getBody().isSuccess());
+        assertEquals("Error accessing database.", responseEntity.getBody().getMessage());
+        assertNull(responseEntity.getBody().getData());
     }
 
     @Test
@@ -139,9 +179,23 @@ public class TodoServiceTest {
         Todo inputTodo = new Todo();
         inputTodo.setName("Updated Todo");
 
+        Task newInput = new Task();
+        newInput.setName("New Name");
+        newInput.setDescription("New Description");
+        List<Task> newAllTask = new ArrayList<>();
+        newAllTask.add(newInput);
+        inputTodo.setTasks(newAllTask);
+
         Todo existingTodo = new Todo();
         existingTodo.setId(todoId);
         existingTodo.setName("Existing Todo");
+
+        Task existingTask = new Task();
+        existingTask.setName("Existing Task");
+        existingTask.setDescription("Existing Description");
+        List<Task> allTasks = new ArrayList<>();
+        allTasks.add(existingTask);
+        existingTodo.setTasks(allTasks);
 
         when(todoRepository.findById(todoId)).thenReturn(Optional.of(existingTodo));
         when(todoRepository.save(any(Todo.class))).thenReturn(existingTodo);
@@ -165,5 +219,32 @@ public class TodoServiceTest {
 
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
         assertNull(response.getBody().getData());
+    }
+
+    @Test
+    public void testUpdateTodoWithException() {
+        // Mock data
+        Long todoId = 1L;
+        Todo existingTodo = new Todo();
+        existingTodo.setId(todoId);
+        existingTodo.setName("Existing Todo");
+        existingTodo.setDescription("Description");
+
+        Todo updatedTodo = new Todo();
+        updatedTodo.setName("Updated Todo");
+        updatedTodo.setDescription("Updated Description");
+
+        when(todoRepository.findById(todoId)).thenReturn(Optional.of(existingTodo));
+        when(todoRepository.save(existingTodo)).thenThrow(new RuntimeException("Simulated database error"));
+
+        // Call the updateTodo method
+        ResponseEntity<CustomResponse<Todo>> responseEntity = todoService.updateTodo(todoId, updatedTodo);
+
+        // Assertions
+        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, responseEntity.getStatusCode());
+        assertNotNull(responseEntity.getBody());
+        assertFalse(responseEntity.getBody().isSuccess());
+        assertEquals("Error accessing database.", responseEntity.getBody().getMessage());
+        assertNull(responseEntity.getBody().getData());
     }
 }

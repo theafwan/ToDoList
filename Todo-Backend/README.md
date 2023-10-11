@@ -82,14 +82,15 @@ The application uses two tables, todos and tasks, with a foreign key relationshi
 Unit test cases for the controller and service classes are provided to test both positive and error scenarios. You can run the tests using the following command:
 
 ```shell
-mvn test
+mvn clean test
 ```
+
+JaCoCo (Java Code Coverage)
+Description: JaCoCo is used for measuring test code coverage. It generates detailed reports that show which parts of the code are exercised by unit tests.
+Configuration: JaCoCo Maven Plugin is configured to produce test coverage reports during the build process.
 
 ## Contributors
 * Mohammed Afwan
-      
-## License
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ```javascript
     Replace `<YOUR_MYSQL_HOST>`, `<YOUR_MYSQL_PORT>`, `<YOUR_DATABASE_NAME>`, `<YOUR_MYSQL_USERNAME>`, and `<YOUR_MYSQL_PASSWORD>` with the actual database connection details in your application.
