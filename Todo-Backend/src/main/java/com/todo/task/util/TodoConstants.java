@@ -1,6 +1,10 @@
 package com.todo.task.util;
 
 public class TodoConstants {
+
+    private TodoConstants() {
+    }
+
     public static final String DATA_CREATED = "Data Created.";
     public static final String ERROR_WHILE_SAVING_DATA = "Error while saving data.";
     public static final String INVALID_REQUEST_BODY = "Invalid request body.";
@@ -12,4 +16,5 @@ public class TodoConstants {
     public static final String DATA_DELETED = "Data deleted";
     public static final String ID_NOT_FOUND = "Id not found.";
     public static final String DATA_UPDATED = "To-Do Updated.";
+
 }
