@@ -1,0 +1,80 @@
+<div class="update-todo">
+  <mat-toolbar color="primary" class="toolbar">
+    <span class="toolbar-title">Update To-Do</span>
+  </mat-toolbar>
+  <form *ngIf="todo" [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+    <div class="field">
+      <label for="name" class="updateLabel">To-Do Name</label>
+      <mat-form-field appearance="fill" class="updateTextArea">
+        <input
+          matInput
+          formControlName="name"
+          id="name"
+          placeholder="Enter To-Do Name"
+          required />
+        
+        <mat-error *ngIf="todoForm?.get('name')?.hasError('required')">
+          To-Do Name is required.
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="field">
+      <label for="description" class="updateLabel">To-Do Description</label>
+      <mat-form-field appearance="fill" class="updateTextArea">
+        <textarea
+          matInput
+          formControlName="description"
+          id="description"
+          placeholder="Enter To-Do Description"
+          required></textarea>
+        
+        <mat-error *ngIf="todoForm?.get('description')?.hasError('required')">
+          To-Do Description is required.
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div *ngIf="todo?.tasks">
+      <h2>Tasks</h2>
+      <div *ngFor="let task of todo.tasks; let i = index" class="task-container">
+        <div class="field">
+          <label for="taskName_{{ i }}" class="updateLabel">Task Name</label>
+          <mat-form-field appearance="fill" class="updateTextArea">
+            <input
+              matInput
+              [formControlName]="'taskName_' + i"
+              id="taskName_{{ i }}"
+              placeholder="Enter Task Name"
+              required/>
+      
+              <mat-error *ngIf="todoForm?.get('taskName_' + i)?.hasError('required')">
+                Task Name is required.
+              </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="field">
+          <label for="taskDescription_{{ i }}" class="updateLabel">Task Description</label>
+          <mat-form-field appearance="fill" class="updateTextArea">
+            <textarea
+              matInput
+              [formControlName]="'taskDescription_' + i"
+              id="taskDescription_{{ i }}"
+              placeholder="Enter Task Description"
+              required></textarea>
+            <mat-error *ngIf="todoForm?.get('taskDescription_' + i)?.hasError('required')">
+              Task Description is required.
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <mat-card-actions class="button-group">
+      <button mat-raised-button color="primary" type="submit" [disabled]="todoForm.invalid">Update To-Do</button>
+      <button mat-raised-button color="warn" routerLink="/todos">Cancel</button>
+    </mat-card-actions>
+  </form>
+</div>

@@ -1,0 +1,61 @@
+<mat-card>
+  <mat-toolbar color="primary" class="toolbar">
+    <span class="toolbar-title centered">Add Todo</span>
+  </mat-toolbar>
+  <mat-card-content>
+    <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+      <div class="field">
+        <mat-form-field appearance="fill" style="width: 70%;">
+          <mat-label>Todo Name</mat-label>
+          <input matInput formControlName="name" placeholder="Todo Name" required>
+          <mat-error *ngIf="todoForm.get('name')?.hasError('required')">
+            Todo Name is required.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="field">
+        <mat-form-field appearance="fill" style="width: 70%;">
+          <mat-label>Todo Description</mat-label>
+          <textarea matInput formControlName="description" placeholder="Todo Description" required></textarea>
+          <mat-error *ngIf="todoForm.get('description')?.hasError('required')">
+            Todo Description is required.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <h2>Tasks</h2>
+      <div formArrayName="tasks">
+        <div *ngFor="let task of tasks.controls; let i = index" [formGroupName]="i">
+          <div class="field">
+            <mat-form-field appearance="fill" style="width: 70%;">
+              <mat-label>Task Name</mat-label>
+              <input matInput formControlName="name" placeholder="Task Name" required>
+              <mat-error *ngIf="task.get('name')?.hasError('required')">
+                Task Name is required.
+              </mat-error>
+            </mat-form-field>
+            <button mat-raised-button color="warn" (click)="removeTask(i)" style="margin-left: 20px;">Remove Task</button>.l.  
+          </div>
+
+          <div class="field">
+            <mat-form-field appearance="fill" style="width: 70%;">
+              <mat-label>Task Description</mat-label>
+              <textarea matInput formControlName="description" placeholder="Task Description" required></textarea>
+              <mat-error *ngIf="task.get('description')?.hasError('required')">
+                Task Description is required.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          
+        </div>
+      </div>
+
+      <button mat-raised-button color="primary" (click)="addTask()">Add Task</button>
+    </form>
+  </mat-card-content>
+  <mat-card-actions class="button-group">
+    <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">Create Todo</button>
+    <button mat-raised-button color="warn" routerLink="/todos">Cancel</button>
+  </mat-card-actions>
+</mat-card>
