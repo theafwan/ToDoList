@@ -1,5 +1,3 @@
-# Home Assignment - EAM P3 Senior Fullstack Engineer
-
 # Todo Application
 
 This is a simple Todo application built using Angular for the frontend and Java Spring Boot for the backend.
